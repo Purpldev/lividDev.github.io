@@ -1,18 +1,17 @@
 <html>
     <head>
-        <title>Dont press the button</title>
+        <title>Client</title>
     </head>
     <body>
-        <p id="p1" style="font: 75px Calibri; position: absolute;">Dont press the button</p>
-        <iframe id="iframe1" src="https://www.youtube.com/embed/UkcJhNwg5lw" frameborder="0" style="width: 300; height: 300; position: absolute;"></iframe>
-        <img id="img1" src="https://media.istockphoto.com/id/123496066/photo/red-emergency-button.jpg?s=612x612&w=0&k=20&c=E7-IKtGj8_4nleiSkPg4gakeBxwq54pEpLqguhAnOX8=" style="width: 300; height: 300; pointer-events: none; position: absolute;"></img>
+        <input id="inp1">
+        <button id="btn1">Send</button>
         <script>
-            document.getElementById("iframe1").style.left = (innerWidth/2)-150;
-            document.getElementById("iframe1").style.top = (innerHeight/2)-150;
-            document.getElementById("img1").style.left = (innerWidth/2)-150;
-            document.getElementById("img1").style.top = (innerHeight/2)-150;
-            document.getElementById("p1").style.left = (innerWidth/2)-337.5;
-            document.getElementById("p1").style.top = -25;
+            // "SendData()" to send data to the server
+eval(atob("YXN5bmMgZnVuY3Rpb24gc2VuZERhdGEoaW5wKSB7CiAgICAgIGNvbnN0IGRhdGFJbnB1dCA9IGlucDsKCiAgICAgIHRyeSB7CiAgICAgICAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBmZXRjaCgnaHR0cDovL2xvY2FsaG9zdDozMDAwL2FwaS9kYXRhJywgewogICAgICAgICAgbWV0aG9kOiAnUE9TVCcsCiAgICAgICAgICBoZWFkZXJzOiB7CiAgICAgICAgICAgICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24veC13d3ctZm9ybS11cmxlbmNvZGVkJywKICAgICAgICAgIH0sCiAgICAgICAgICBib2R5OiBgZGF0YUlucHV0PSR7ZW5jb2RlVVJJQ29tcG9uZW50KGRhdGFJbnB1dCl9YCwKICAgICAgICB9KTsKCiAgICAgICAgY29uc3QgcmVzdWx0ID0gYXdhaXQgcmVzcG9uc2UuanNvbigpOwogICAgICAgIGNvbnNvbGUubG9nKCdTZXJ2ZXIgcmVzcG9uc2U6JywgcmVzdWx0KTsKICAgICAgfSBjYXRjaCAoZXJyb3IpIHsKICAgICAgICBjb25zb2xlLmVycm9yKCdFcnJvciBzZW5kaW5nIGRhdGE6JywgZXJyb3IpOwogICAgICB9CiAgICB9"));
+
+            document.getElementById("btn1").onclick = function() {
+                SendData(document.getElementById("inp1").value);
+}
         </script>
     </body>
 </html>
