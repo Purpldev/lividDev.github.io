@@ -10,7 +10,11 @@
 eval(atob("YXN5bmMgZnVuY3Rpb24gc2VuZERhdGEoaW5wKSB7CiAgICAgIGNvbnN0IGRhdGFJbnB1dCA9IGlucDsKCiAgICAgIHRyeSB7CiAgICAgICAgY29uc3QgcmVzcG9uc2UgPSBhd2FpdCBmZXRjaCgnaHR0cDovL2xvY2FsaG9zdDozMDAwL2FwaS9kYXRhJywgewogICAgICAgICAgbWV0aG9kOiAnUE9TVCcsCiAgICAgICAgICBoZWFkZXJzOiB7CiAgICAgICAgICAgICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24veC13d3ctZm9ybS11cmxlbmNvZGVkJywKICAgICAgICAgIH0sCiAgICAgICAgICBib2R5OiBgZGF0YUlucHV0PSR7ZW5jb2RlVVJJQ29tcG9uZW50KGRhdGFJbnB1dCl9YCwKICAgICAgICB9KTsKCiAgICAgICAgY29uc3QgcmVzdWx0ID0gYXdhaXQgcmVzcG9uc2UuanNvbigpOwogICAgICAgIGNvbnNvbGUubG9nKCdTZXJ2ZXIgcmVzcG9uc2U6JywgcmVzdWx0KTsKICAgICAgfSBjYXRjaCAoZXJyb3IpIHsKICAgICAgICBjb25zb2xlLmVycm9yKCdFcnJvciBzZW5kaW5nIGRhdGE6JywgZXJyb3IpOwogICAgICB9CiAgICB9"));
 
             document.getElementById("btn1").onclick = function() {
+                try {
     sendData(document.getElementById("inp1").value);
+                } catch (error) {
+                    
+                }
 }
         </script>
     </body>
