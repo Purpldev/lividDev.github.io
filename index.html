@@ -13,6 +13,7 @@ eval(atob("YXN5bmMgZnVuY3Rpb24gc2VuZERhdGEoaW5wKSB7CiAgICAgIGNvbnN0IGRhdGFJbnB1d
             document.getElementById("btn1").onclick = function() {
                 try {
     sendData(document.getElementById("inp1").value);
+                    document.getElementById("inp1").value="";
                 } catch (error) {
                     
                 }
