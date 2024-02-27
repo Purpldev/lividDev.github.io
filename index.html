@@ -1,1 +1,17 @@
+<html>
+    <head>
+        <title>eyes</title>
+    </head>
+    <body>
+        <p style="font: 75px Calibri; position: absolute; left: 20px; top: 20px; margin: 0px;" id="text"></p>
 
+        <script>
+            function convertCoordinates(latitude,longitude) {
+    return (Math.floor(latitude)+"°"+(Math.floor(((latitude-Math.floor(latitude))*60)))+"'"+(Math.floor((((((latitude-Math.floor(latitude))*60))-Math.floor((((latitude-Math.floor(latitude))*60))))*60)*10)/10)+'"N')+" "+(Math.floor(longitude)+"°"+(Math.floor(((longitude-Math.floor(longitude))*60)))+"'"+(Math.floor((((((longitude-Math.floor(longitude))*60))-Math.floor((((longitude-Math.floor(longitude))*60))))*60)*10)/10)+'"E');;
+}
+navigator.geolocation.getCurrentPosition((data) => {
+    document.getElementById("text").textContent="Coordinates: "+convertCoordinates(data.coords.latitude,data.coords.longitude);
+});
+        </script>
+    </body>
+</html>
