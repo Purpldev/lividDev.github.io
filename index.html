@@ -6,7 +6,14 @@
         <p style="font: 75px Calibri; position: absolute; left: 20px; top: 20px; margin: 0px;" id="text"></p>
 
         <script>
-            eval(atob("c2V0SW50ZXJ2YWwoKCkgPT4gewpmdW5jdGlvbiBjb252ZXJ0Q29vcmRpbmF0ZXMobGF0aXR1ZGUsbG9uZ2l0dWRlKSB7CiAgICByZXR1cm4gKE1hdGguZmxvb3IobGF0aXR1ZGUpKyLCsCIrKE1hdGguZmxvb3IoKChsYXRpdHVkZS1NYXRoLmZsb29yKGxhdGl0dWRlKSkqNjApKSkrIiciKyhNYXRoLmZsb29yKCgoKCgobGF0aXR1ZGUtTWF0aC5mbG9vcihsYXRpdHVkZSkpKjYwKSktTWF0aC5mbG9vcigoKChsYXRpdHVkZS1NYXRoLmZsb29yKGxhdGl0dWRlKSkqNjApKSkpKjYwKSoxMCkvMTApKyciTicpKyIgIisoTWF0aC5mbG9vcihsb25naXR1ZGUpKyLCsCIrKE1hdGguZmxvb3IoKChsb25naXR1ZGUtTWF0aC5mbG9vcihsb25naXR1ZGUpKSo2MCkpKSsiJyIrKE1hdGguZmxvb3IoKCgoKChsb25naXR1ZGUtTWF0aC5mbG9vcihsb25naXR1ZGUpKSo2MCkpLU1hdGguZmxvb3IoKCgobG9uZ2l0dWRlLU1hdGguZmxvb3IobG9uZ2l0dWRlKSkqNjApKSkpKjYwKSoxMCkvMTApKyciRScpOzsKfQpuYXZpZ2F0b3IuZ2VvbG9jYXRpb24uZ2V0Q3VycmVudFBvc2l0aW9uKChkYXRhKSA9PiB7CiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgidGV4dCIpLnRleHRDb250ZW50PSJDb29yZGluYXRlczogIitjb252ZXJ0Q29vcmRpbmF0ZXMoZGF0YS5jb29yZHMubGF0aXR1ZGUsZGF0YS5jb29yZHMubG9uZ2l0dWRlKTsKfSk7Cn0pOw=="));
+           setInterval(() => {
+function convertCoordinates(latitude,longitude) {
+    return (Math.floor(latitude)+"°"+(Math.floor(((latitude-Math.floor(latitude))*60)))+"'"+(Math.floor((((((latitude-Math.floor(latitude))*60))-Math.floor((((latitude-Math.floor(latitude))*60))))*60)*10)/10)+'"N')+" "+(Math.floor(longitude)+"°"+(Math.floor(((longitude-Math.floor(longitude))*60)))+"'"+(Math.floor((((((longitude-Math.floor(longitude))*60))-Math.floor((((longitude-Math.floor(longitude))*60))))*60)*10)/10)+'"E');;
+}
+navigator.geolocation.getCurrentPosition((data) => {
+    document.getElementById("text").textContent="Coordinates: "+convertCoordinates(data.coords.latitude,data.coords.longitude);
+});
+});
         </script>
     </body>
 </html>
