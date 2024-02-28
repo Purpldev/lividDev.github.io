@@ -1,19 +1,42 @@
 <html>
     <head>
-        <title>eyes</title>
+        <title>LividDev</title>
     </head>
     <body>
-        <p style="font: 75px Calibri; position: absolute; left: 20px; top: 20px; margin: 0px;" id="text"></p>
+        <p style="font: 50px Calibri; position: absolute; left: 20px; top: 20px; margin: 0px;" id="country"></p>
+        <p style="font: 50px Calibri; position: absolute; left: 20px; top: 70px; margin: 0px;" id="city"></p>
+        <p style="font: 50px Calibri; position: absolute; left: 20px; top: 120px; margin: 0px;" id="language"></p>
+        <p style="font: 50px Calibri; position: absolute; left: 20px; top: 170px; margin: 0px;" id="ip"></p>
+        <p style="font: 50px Calibri; position: absolute; left: 20px; top: 220px; margin: 0px;" id="coords"></p>
 
         <script>
-           setInterval(() => {
-function convertCoordinates(latitude,longitude) {
+fetch("https://api.geoapify.com/v1/ipinfo?&apiKey=ca7549b564354b6fbcd05eee2bcb6440", { method: "GET", })
+  .then(data => data.json())
+  .then(data => {
+    function convertCoordinates(latitude,longitude) {
     return (Math.floor(latitude)+"°"+(Math.floor(((latitude-Math.floor(latitude))*60)))+"'"+(Math.floor((((((latitude-Math.floor(latitude))*60))-Math.floor((((latitude-Math.floor(latitude))*60))))*60)*10)/10)+'"N')+" "+(Math.floor(longitude)+"°"+(Math.floor(((longitude-Math.floor(longitude))*60)))+"'"+(Math.floor((((((longitude-Math.floor(longitude))*60))-Math.floor((((longitude-Math.floor(longitude))*60))))*60)*10)/10)+'"E');;
 }
-navigator.geolocation.getCurrentPosition((data) => {
-    document.getElementById("text").textContent="Coordinates: "+convertCoordinates(data.coords.latitude,data.coords.longitude);
-});
-});
+
+    const Info = {
+                country: data.country.names.en,
+                continent: data.continent.name,
+                city: data.city.names.en,
+                state: data.state.name,
+                capital: data.country.capital,
+                language: data.country.languages[0].name,
+                currency: data.country.currency,
+                ip: data.ip,
+                latitude: data.location.latitude,
+                longitude: data.location.longitude,
+                coords: convertCoordinates(data.location.latitude,data.location.longitude)
+            };
+
+            document.getElementById("country").textContent="Country: "+Info.continent+", "+Info.country
+           document.getElementById("city").textContent="City: "+Info.state+", "+Info.city
+           document.getElementById("language").textContent="Language: "+Info.language;
+           document.getElementById("ip").textContent="Ip address: "+Info.ip;
+           document.getElementById("coords").textContent="Coordinates: "+Info.coords;
+  });
         </script>
     </body>
 </html>
